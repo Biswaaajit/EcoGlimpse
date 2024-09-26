@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoGlimpse</title>
+    <link href="./css/output.css" rel="stylesheet" />
+    <link href="./image/Icon.png" rel="Icon" />
+  </head>
+  <body class="w-full h-fit text-slate-200">
+    <!--                                   Nav section                            -->
+    <main class="w-full h-screen flex flex-col homePage">
+      <nav
+        class="w-full h-fit blurEffect flex flex-row justify-between items-center px-3 md:px-6 py-0 md:py-1.5"
+      >
+        <!--  Logo     -->
+        <div>
+          <img
+            src="./image/logo.png"
+            alt="Website Logo"
+            class="w-[12rem] hidden md:block lg:w-[13rem] transition-all"
+          />
+          <img
+            src="./image/logo1.png"
+            alt="Website Logo"
+            class="w-[4rem] block md:hidden"
+          />
+        </div>
+        <div class="w-fit grad p-0.5 rounded-full">
+          <button
+            id="trackLocation"
+            class="bg-zinc-900 hover:bg-gradient-to-r from-pink-600 to-indigo-500 py-1 px-3 rounded-full"
+          >
+            Use Location
+          </button>
+        </div>
+      </nav>
+
+      <!--              Input section                -->
+
+      <section
+        class="w-[80%] md:w-[60%] lg:w-[45%] blurEffect mx-auto mt-5 px-2 py-1.5 rounded-full"
+      >
+        <form class="w-full flex items-center">
+          <label
+            for="search"
+            class="text-2xl grad bg-clip-text text-transparent mx-2"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></label>
+          <input
+            id="userInput"
+            autocomplete="off"
+            type="text"
+            class="grow focus:outline-none bg-transparent px-1 placeholder:text-slate-500"
+            placeholder="Search..."
+          />
+        </form>
+      </section>
+
+      <!--              Data Section                 -->
+      <div
+        class="flex h-full flex-col lg:flex-row justify-between sm:justify-evenly items-stretch lg:items-center"
+      >
+        <section class="w-full lg:w-fit">
+          <div
+            class="blurEffect w-[75%] space-y-0 sm:space-y-4 sm:w-[55%] md:w-[45%] lg:w-fit px-4 sm:px-8 py-3 mx-auto mt-10"
+            id="currDataContainer"
+          >
+            <!-- <div>
+              <p class="text-slate-200 font-semibold text-2xl">London</p>
+              <div class="flex gap-2 items-center">
+                <p class="text-slate-400">Ukrain</p>
+                <img
+                  src="https://flagcdn.com/20x15/ua.png"
+                  width="20"
+                  height="15"
+                  alt="Ukraine"
+                />
+              </div>
+            </div> -->
+            <!-- temp and icon -->
+            <!-- <div
+              class="w-full flex justify-between gap-0 lg:gap-14 items-center"
+            >
+              <p class="text-[10vw] sm:text-6xl lg:text-7xl xl:text-8xl">
+                23.2<sup>o</sup>C
+              </p>
+              <div class="flex flex-col items-center">
+                <span class="text-[9vw] sm:text-5xl lg:text-6xl xl:text-7xl"
+                  ><i class="fa-solid fa-cloud"></i
+                ></span>
+                <p class="font-md text-lg">Cloudy</p>
+              </div>
+            </div> -->
+            <!-- Wind Humidity  -->
+            <!-- <div class="flex gap-8">
+              <div class="flex items-center gap-1.5 text-slate-400">
+                <span class="text-2xl"><i class="fa-solid fa-wind"></i></span>
+                <span class="text-xl">2.25 m/s</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-slate-400">
+                <span class="text-2xl"
+                  ><i class="fa-solid fa-droplet"></i
+                ></span>
+                <span class="text-xl">88%</span>
+              </div>
+            </div> -->
+          </div>
+        </section>
+        <!--                      5 More Data                             -->
+
+        <section
+          class="grid grid-cols-3 justify-items-center sm:grid-cols-5 lg:grid-cols-3 gap-2 lg:gap-6 mb-4 transition-all"
+          id="moreDetails"
+        >
+          <!-- <div
+            class="blurEffect rounded-xl leading-7 h-fit sm:leading-none w-fit flex flex-col items-center px-4 py-1 space-y-0 sm:space-y-2 lg:py-3 transition-all"
+          >
+            <p class="text-center">Mon</p>
+            <p class="text-[8vw] sm:text-[6vw] lg:text-6xl">
+              <i class="fa-solid fa-cloud"></i>
+            </p>
+            <p class="hidden md:block">ThunderStorm</p>
+            <p>31.2<sup>o</sup>C</p>
+            <p class="text-sm text-slate-400">2.25 m/s</p>
+          </div> -->
+
+          <!--  -->
+        </section>
+      </div>
+    </main>
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./JS/weather.js"></script>
+    <script type="module" src="./JS/showMoreData.js"></script>
+    <script type="module" src="./JS/location.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fd5db906e0.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

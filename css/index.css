@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.homePage {
+  background: radial-gradient(transparent, black), url("../image/droplet.jpg");
+  background-size: cover;
+  background-position: center;
+}
+@layer components {
+  .grad {
+    @apply bg-gradient-to-r from-pink-600 to-indigo-500;
+  }
+  .blurEffect {
+    @apply backdrop-blur-[4px] bg-zinc-900/40;
+  }
+  .windInfoDiv {
+    @apply flex items-center gap-1.5 text-slate-400;
+  }
+  .detailBlock {
+    @apply backdrop-blur-[4px] bg-zinc-900/40 rounded-xl leading-7 h-fit sm:leading-none w-fit flex flex-col items-center px-4 py-1 space-y-0 sm:space-y-2 lg:py-3 transition-all;
+  }
+}
