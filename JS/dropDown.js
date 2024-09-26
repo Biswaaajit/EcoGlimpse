@@ -9,7 +9,9 @@ export function setList(item) {
   if (res) {
     arr = JSON.parse(res);
   }
-  arr.unshift(item);
+  if (!arr.includes(item)) {
+    arr.unshift(item);
+  }
   let newArr = JSON.stringify(arr);
   localStorage.setItem("searchList", newArr);
 }
