@@ -39,7 +39,7 @@
       <!--              Input section                -->
 
       <section
-        class="w-[80%] md:w-[60%] lg:w-[45%] blurEffect mx-auto mt-5 px-2 py-1.5 rounded-full"
+        class="w-[80%] md:w-[60%] lg:w-[45%] mx-auto mt-5 px-4 py-3 rounded-2xl blurEffect relative z-50"
       >
         <form class="w-full flex items-center">
           <label
@@ -55,11 +55,18 @@
             placeholder="Search..."
           />
         </form>
+
+        <!--                    suggestions                  -->
+
+        <div
+          id="dropBox"
+          class="w-full hidden backdrop-blur-none bg-zinc-900 px-4 pt-4 pb-2 divide-y-2 divide-slate-600/15 absolute top-[100%] left-0"
+        ></div>
       </section>
 
       <!--              Data Section                 -->
       <div
-        class="flex h-full flex-col lg:flex-row justify-between sm:justify-evenly items-stretch lg:items-center"
+        class="flex h-full flex-col lg:flex-row justify-between sm:justify-evenly relative z-[1] items-stretch lg:items-center"
       >
         <section class="w-full lg:w-fit">
           <div
@@ -79,6 +86,7 @@
     <script type="module" src="./JS/weather.js"></script>
     <script type="module" src="./JS/showMoreData.js"></script>
     <script type="module" src="./JS/location.js"></script>
+    <script type="module" src="./JS/dropDown.js"></script>
     <script
       src="https://kit.fontawesome.com/fd5db906e0.js"
       crossorigin="anonymous"

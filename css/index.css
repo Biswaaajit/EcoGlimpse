@@ -17,7 +17,7 @@
   .windInfoDiv {
     @apply flex items-center gap-1.5 text-slate-400;
   }
-  .detailBlock {
-    @apply backdrop-blur-[4px] bg-zinc-900/40 rounded-xl leading-7 h-fit sm:leading-none w-fit flex flex-col items-center px-4 py-1 space-y-0 sm:space-y-2 lg:py-3 transition-all;
+  .dropMenu {
+    @apply w-full py-2 pl-2 capitalize text-lg text-slate-600 font-semibold hover:text-slate-200 cursor-pointer;
   }
 }

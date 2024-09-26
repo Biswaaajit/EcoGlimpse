@@ -1,7 +1,9 @@
 import { getWeatherIcon } from "./JS/weather.js";
 import { showMoreData } from "./JS/showMoreData.js";
+import { setList } from "./JS/dropDown.js";
 const userInput = document.querySelector("#userInput");
 const currDataContainer = document.querySelector("#currDataContainer");
+const dropBox = document.querySelector("#dropBox");
 
 //                        function to get weather data
 
@@ -101,6 +103,7 @@ export function showCurrentData(obj, flag, country, place) {
 
 document.querySelector("form").addEventListener("submit", async function (e) {
   e.preventDefault();
+  dropBox.style.display = "none";
 
   //fetching latitude and longitude
 
@@ -116,4 +119,5 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   const weatherData = await getWeatherData(latitude, longitude, timezone);
   showCurrentData(weatherData.current, countryCode, country, name);
   showMoreData(weatherData.daily);
+  setList(userInput.value);
 });
