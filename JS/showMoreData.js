@@ -14,6 +14,7 @@ function getDay(date) {
 
 export function showMoreData(data) {
   moreDetails.innerHTML = "";
+  console.log(data);
   const {
     temperature_2m_max: temp,
     time,

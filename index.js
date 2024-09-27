@@ -4,6 +4,8 @@ import { setList } from "./JS/dropDown.js";
 const userInput = document.querySelector("#userInput");
 const currDataContainer = document.querySelector("#currDataContainer");
 const dropBox = document.querySelector("#dropBox");
+const spinner = document.querySelector("#spinner");
+const moreDetails = document.querySelector("#moreDetails");
 
 //                        function to get weather data
 
@@ -20,7 +22,6 @@ export async function getWeatherData(latitude, longitude, timezone) {
 export function showCurrentData(obj, flag, country, place) {
   // extracting API datas
 
-  currDataContainer.innerHTML = "";
   const {
     relative_humidity_2m: humidity,
     temperature_2m: temp,
@@ -103,7 +104,10 @@ export function showCurrentData(obj, flag, country, place) {
 
 document.querySelector("form").addEventListener("submit", async function (e) {
   e.preventDefault();
+  currDataContainer.innerHTML = "";
+  moreDetails.innerHTML = "";
   dropBox.style.display = "none";
+  spinner.style.display = "block";
 
   //fetching latitude and longitude
 
@@ -117,6 +121,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
 
   //fetching weather data
   const weatherData = await getWeatherData(latitude, longitude, timezone);
+  spinner.style.display = "none";
   showCurrentData(weatherData.current, countryCode, country, name);
   showMoreData(weatherData.daily);
   setList(userInput.value);

@@ -9,7 +9,7 @@
   </head>
   <body class="w-full h-fit text-slate-200">
     <!--                                   Nav section                            -->
-    <main class="w-full h-screen flex flex-col homePage">
+    <main class="w-full h-screen flex flex-col relative homePage">
       <nav
         class="w-full h-fit blurEffect flex flex-row justify-between items-center px-3 md:px-6 py-0 md:py-1.5"
       >
@@ -64,17 +64,39 @@
         ></div>
       </section>
 
-      <!--              Data Section                 -->
+      <!--                Error section                          -->
+      <section
+        class="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-40"
+      >
+        <p
+          id="errorMsg"
+          class="hidden backdrop-blur-[4px] bg-red-600/15 w-fit mx-auto py-1 px-4 mt-7 text-2xl text-slate-300"
+        >
+          Unable to fetch data
+        </p>
+
+        <!--   Spinner   -->
+
+        <p
+          class="hidden mx-auto w-fit text-6xl text-slate-300 animate-spin"
+          id="spinner"
+        >
+          <i class="fa-brands fa-cloudscale"></i>
+        </p>
+      </section>
+      <!--                               Data Section                                   -->
       <div
         class="flex h-full flex-col lg:flex-row justify-between sm:justify-evenly relative z-[1] items-stretch lg:items-center"
       >
+        <!--  current data   -->
+
         <section class="w-full lg:w-fit">
           <div
             class="blurEffect w-[75%] space-y-0 sm:space-y-4 sm:w-[55%] md:w-[45%] lg:w-fit px-4 sm:px-8 py-3 mx-auto mt-10"
             id="currDataContainer"
           ></div>
         </section>
-        <!--                      5 More Data                             -->
+        <!--  5 More Data  -->
 
         <section
           class="grid grid-cols-3 justify-items-center sm:grid-cols-5 lg:grid-cols-3 gap-2 lg:gap-6 mb-4 transition-all"

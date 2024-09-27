@@ -29,6 +29,7 @@ export function getWeatherIcon(code) {
     code == 63 ||
     code == 65 ||
     code == 57 ||
+    code == 55 ||
     code == 67 ||
     code == 81 ||
     code == 82
