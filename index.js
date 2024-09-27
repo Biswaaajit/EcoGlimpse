@@ -110,8 +110,22 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   currDataContainer.innerHTML = "";
   moreDetails.innerHTML = "";
   dropBox.style.display = "none";
-  spinner.style.display = "block";
   errMsg.style.display = "none";
+  const regex = /^[A-Za-z]+$/;
+
+  if (!userInput.value) {
+    errMsg.innerText = "Please enter a location";
+    errMsg.style.display = "block";
+    return;
+  }
+
+  if (!regex.test(userInput.value)) {
+    errMsg.innerText = "Enter a valid location";
+    errMsg.style.display = "block";
+    return;
+  }
+
+  spinner.style.display = "block";
 
   //fetching latitude and longitude
   try {
