@@ -8,6 +8,7 @@ const moreDetails = document.querySelector("#moreDetails");
 const errMsg = document.querySelector("#errorMsg");
 
 trackLocation.addEventListener("click", function () {
+  currDataContainer.style.display = "none";
   currDataContainer.innerHTML = "";
   moreDetails.innerHTML = "";
   spinner.style.display = "block";
@@ -41,7 +42,7 @@ trackLocation.addEventListener("click", function () {
       );
       showMoreData(weatherData.daily);
     } catch (err) {
-      errMsg.innerText = "Unable to fetch data through location";
+      errMsg.innerText = "Unable to fetch data through location!!!";
       errMsg.style.display = "block";
     } finally {
       spinner.style.display = "none";

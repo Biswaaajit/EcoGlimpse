@@ -6,6 +6,7 @@ const currDataContainer = document.querySelector("#currDataContainer");
 const dropBox = document.querySelector("#dropBox");
 const spinner = document.querySelector("#spinner");
 const moreDetails = document.querySelector("#moreDetails");
+const errMsg = document.querySelector("#errorMsg");
 
 //                        function to get weather data
 
@@ -21,6 +22,7 @@ export async function getWeatherData(latitude, longitude, timezone) {
 
 export function showCurrentData(obj, flag, country, place) {
   // extracting API datas
+  currDataContainer.style.display = "block";
 
   const {
     relative_humidity_2m: humidity,
@@ -104,26 +106,34 @@ export function showCurrentData(obj, flag, country, place) {
 
 document.querySelector("form").addEventListener("submit", async function (e) {
   e.preventDefault();
+  currDataContainer.style.display = "none";
   currDataContainer.innerHTML = "";
   moreDetails.innerHTML = "";
   dropBox.style.display = "none";
   spinner.style.display = "block";
+  errMsg.style.display = "none";
 
   //fetching latitude and longitude
+  try {
+    const res = await fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${userInput.value}&count=10&language=en`
+    );
+    const data = await res.json();
+    const { latitude, longitude, timezone, name, country, country_code } =
+      data.results.at(0);
+    let countryCode = country_code.toLowerCase();
 
-  const res = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${userInput.value}&count=10&language=en`
-  );
-  const data = await res.json();
-  const { latitude, longitude, timezone, name, country, country_code } =
-    data.results.at(0);
-  let countryCode = country_code.toLowerCase();
-
-  //fetching weather data
-  const weatherData = await getWeatherData(latitude, longitude, timezone);
-  spinner.style.display = "none";
-  showCurrentData(weatherData.current, countryCode, country, name);
-  showMoreData(weatherData.daily);
-  setList(userInput.value);
-  userInput.value = "";
+    //fetching weather data
+    const weatherData = await getWeatherData(latitude, longitude, timezone);
+    spinner.style.display = "none";
+    showCurrentData(weatherData.current, countryCode, country, name);
+    showMoreData(weatherData.daily);
+    setList(userInput.value);
+  } catch (err) {
+    errMsg.innerText = "Unable to fetch Weather Data!!!";
+    errMsg.style.display = "block";
+  } finally {
+    spinner.style.display = "none";
+    userInput.value = "";
+  }
 });
