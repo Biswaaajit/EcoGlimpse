@@ -120,4 +120,5 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   showCurrentData(weatherData.current, countryCode, country, name);
   showMoreData(weatherData.daily);
   setList(userInput.value);
+  userInput.value = "";
 });
