@@ -25,18 +25,7 @@ function builtDropdown() {
   for (let i = 0; i < length; i++) {
     const para = document.createElement("p");
     para.innerText = searchData[i];
-    para.classList.add(
-      "w-full",
-      "py-2",
-      "pl-2",
-      "capitalize",
-      "text-lg",
-      "text-slate-600",
-      "font-semibold",
-      "hover:text-slate-200",
-      "cursor-pointer",
-      "transition-all"
-    );
+    para.classList.add("dropMenu");
     dropBox.appendChild(para);
     para.addEventListener("click", () => {
       userInput.value = para.innerText;
@@ -47,6 +36,9 @@ function builtDropdown() {
   dropBox.style.display = "block";
 }
 
+userInput.addEventListener("keydown", () => {
+  builtDropdown();
+});
 userInput.addEventListener("focus", () => {
   builtDropdown();
 });

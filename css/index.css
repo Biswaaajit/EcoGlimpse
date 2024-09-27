@@ -7,7 +7,7 @@
   background-size: cover;
   background-position: center;
 }
-@layer base {
+@layer components {
   .grad {
     @apply bg-gradient-to-r from-pink-600 to-indigo-500;
   }
@@ -17,4 +17,18 @@
   .windInfoDiv {
     @apply flex items-center gap-1.5 text-slate-400;
   }
+}
+
+.dropMenu {
+  width: full;
+  padding: 8px 0px;
+  padding-left: 8px;
+  color: #475569;
+  font-size: large;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.dropMenu:hover {
+  color: #e2e8f0;
+  cursor: pointer;
 }
