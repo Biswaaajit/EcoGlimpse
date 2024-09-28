@@ -102,10 +102,9 @@ export function showCurrentData(obj, flag, country, place) {
   windInfoContainer.appendChild(windInfoSecondDiv);
 }
 
-//                                   Event Listeners
+//                                   Data input function
 
-document.querySelector("form").addEventListener("submit", async function (e) {
-  e.preventDefault();
+async function showData(input) {
   currDataContainer.style.display = "none";
   currDataContainer.innerHTML = "";
   moreDetails.innerHTML = "";
@@ -113,13 +112,13 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   errMsg.style.display = "none";
   const regex = /^[A-Za-z]+$/;
 
-  if (!userInput.value) {
+  if (!input) {
     errMsg.innerText = "Please enter a location";
     errMsg.style.display = "block";
     return;
   }
 
-  if (!regex.test(userInput.value)) {
+  if (!regex.test(input)) {
     errMsg.innerText = "Enter a valid location";
     errMsg.style.display = "block";
     return;
@@ -130,7 +129,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
   //fetching latitude and longitude
   try {
     const res = await fetch(
-      `https://geocoding-api.open-meteo.com/v1/search?name=${userInput.value}&count=10&language=en`
+      `https://geocoding-api.open-meteo.com/v1/search?name=${input}&count=10&language=en`
     );
     const data = await res.json();
     const { latitude, longitude, timezone, name, country, country_code } =
@@ -142,7 +141,7 @@ document.querySelector("form").addEventListener("submit", async function (e) {
     spinner.style.display = "none";
     showCurrentData(weatherData.current, countryCode, country, name);
     showMoreData(weatherData.daily);
-    setList(userInput.value);
+    setList(input);
   } catch (err) {
     errMsg.innerText = "Unable to fetch Weather Data!!!";
     errMsg.style.display = "block";
@@ -150,4 +149,13 @@ document.querySelector("form").addEventListener("submit", async function (e) {
     spinner.style.display = "none";
     userInput.value = "";
   }
+}
+
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  showData(userInput.value);
 });
+
+// initially loading weather data of a city
+
+showData("kolkata");
