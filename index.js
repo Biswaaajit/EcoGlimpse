@@ -1,6 +1,3 @@
-import { getWeatherIcon } from "./JS/weather.js";
-import { showMoreData } from "./JS/showMoreData.js";
-import { setList } from "./JS/dropDown.js";
 const userInput = document.querySelector("#userInput");
 const currDataContainer = document.querySelector("#currDataContainer");
 const dropBox = document.querySelector("#dropBox");
@@ -10,7 +7,7 @@ const errMsg = document.querySelector("#errorMsg");
 
 //                        function to get weather data
 
-export async function getWeatherData(latitude, longitude, timezone) {
+async function getWeatherData(latitude, longitude, timezone) {
   const weatherRes = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,wind_speed_10m_max&wind_speed_unit=ms`
   );
@@ -20,7 +17,7 @@ export async function getWeatherData(latitude, longitude, timezone) {
 
 //                          function to print weather data
 
-export function showCurrentData(obj, flag, country, place) {
+function showCurrentData(obj, flag, country, place) {
   // extracting API datas
   currDataContainer.style.display = "block";
 

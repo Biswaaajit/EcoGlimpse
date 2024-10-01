@@ -1,6 +1,3 @@
-import { getWeatherIcon } from "./weather.js";
-const moreDetails = document.querySelector("#moreDetails");
-
 // function to get weekday
 
 function getDay(date) {
@@ -12,7 +9,7 @@ function getDay(date) {
 
 // function to show added location
 
-export function showMoreData(data) {
+function showMoreData(data) {
   moreDetails.innerHTML = "";
   console.log(data);
   const {

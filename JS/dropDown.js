@@ -1,9 +1,6 @@
-const dropBox = document.querySelector("#dropBox");
-const userInput = document.querySelector("#userInput");
-
 dropBox.style.display = "none";
 
-export function setList(item) {
+function setList(item) {
   let arr = [];
   let newItem = item.toLowerCase();
   const res = localStorage.getItem("searchList");

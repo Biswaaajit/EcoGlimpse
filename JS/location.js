@@ -1,11 +1,4 @@
-import { showCurrentData } from "../index.js";
-import { showMoreData } from "./showMoreData.js";
-import { getWeatherData } from "../index.js";
 const trackLocation = document.querySelector("#trackLocation");
-const spinner = document.querySelector("#spinner");
-const currDataContainer = document.querySelector("#currDataContainer");
-const moreDetails = document.querySelector("#moreDetails");
-const errMsg = document.querySelector("#errorMsg");
 
 trackLocation.addEventListener("click", function () {
   currDataContainer.style.display = "none";

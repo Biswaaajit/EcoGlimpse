@@ -1,4 +1,4 @@
-export function getWeatherIcon(code) {
+function getWeatherIcon(code) {
   if (code == 0 || code == 1) {
     return {
       icon: '<i class="fa-solid fa-sun"></i>',
